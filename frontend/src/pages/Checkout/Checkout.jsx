@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./Checkout.css";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,7 +19,7 @@ const Checkout = ({
   url
 }) => {
   const [ignore, setIgnore] = useState(true);
-//Valor dos Input Radio
+  //Valor dos Input Radio
   const [pixValue, setPixValue] = useState()
 
   const valueLog = (event) => {
@@ -123,7 +124,7 @@ const Checkout = ({
                 size: produtosCarrinho[i].tamanho.toLowerCase(),
               });
             }
-            await axios.post(`${url}/sms`, {pedido_id: resultado.data[0].pedido_id, customer_id})
+            await axios.post(`${url}/sms`, { pedido_id: resultado.data[0].pedido_id, customer_id })
           });
 
         localStorage.removeItem("produtosCarrinho");
@@ -143,20 +144,20 @@ const Checkout = ({
           {(!isLoged ||
             isLoged === "wrongPassword" ||
             isLoged === "notFound") && (
-            <NavLink to="/Login">
-              <div
-                style={{
-                  width: "100vw",
-                  height: "60vh",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <h1>Faça o login para finalizar o pedido clicando aqui</h1>
-              </div>
-            </NavLink>
-          )}
+              <NavLink to="/Login">
+                <div
+                  style={{
+                    width: "100vw",
+                    height: "60vh",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <h1>Faça o login para finalizar o pedido clicando aqui</h1>
+                </div>
+              </NavLink>
+            )}
           {isLoged === true && (
             <section className="checkout" style={{ marginLeft: 5 + "px" }}>
               <div className="checkout__header">
